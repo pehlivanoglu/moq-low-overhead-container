@@ -3,4 +3,11 @@ name = "moq-low-overhead-container"
 version = "0.1.0"
 edition = "2021"
 
+[lib]
+path = "LOC/lib.rs"
+
+[[bin]]
+name = "loc-test"
+path = "LOC/test.rs"
+
 [dependencies]

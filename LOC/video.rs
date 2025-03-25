@@ -1,11 +1,25 @@
-pub struct VideoContainer {
+pub struct VideoContainer { //TODO: ask if container should contain header and payload or they should be separate
     pub header: VideoHeader,
-    pub payload: Vec<u8>, //TODO: implement payload
+    pub payload: Vec<u8>,
+}
+
+impl VideoContainer {
+    pub fn new(header: VideoHeader, payload: Vec<u8>) -> Self {
+        return Self { header, payload };
+    }
 }
 
 pub struct VideoHeader {
-    value: u32, // TODO: ??
     id: VideoHeaderId,
+    length: u8, //TODO: can be dropped — it’s redundant since we can compute value.len()
+    value: u32, //TODO: what should the data type be?
+    
+}
+
+impl VideoHeader {
+    pub fn new(id: VideoHeaderId, length: u8, value: u32) -> Self {
+        return Self { id, length, value };
+    }
 }
 
 pub enum VideoHeaderId {
